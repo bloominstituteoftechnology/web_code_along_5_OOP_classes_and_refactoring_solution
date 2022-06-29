@@ -230,24 +230,25 @@
 			}
 		}
  
+		displayCard(card) {
+			const rank = card.rank;
+			const suit = card.suit;
+			const cardString = imageHeader + rank + "_of_" + suit + ".png";
+			const cardImg = document.createElement("img");
+			cardImg.setAttribute("src", cardString);
+			return cardImg;
+		}
+		
 		displayPlayerCards() {
 			for (let i = 0; i < this.hand.length; i++) {
-				let rank = this.hand[i].rank;
-				let suit = this.hand[i].suit;
-				let cardString = imageHeader + rank + "_of_" + suit + ".png";
-				let cardImg = document.createElement('img');
-				cardImg.setAttribute('src', cardString);
+				const cardImg = this.displayCard(this.hand[i]);
 				playerBottom.appendChild(cardImg);
 			}
 		}
- 
+		
 		displayComputerCards() {
 			for (let i = 0; i < this.hand.length; i++) {
-				let rank = this.hand[i].rank;
-				let suit = this.hand[i].suit;
-				let cardString = imageHeader + rank + "_of_" + suit + ".png";
-				let cardImg = document.createElement('img');
-				cardImg.setAttribute('src', cardString);
+				const cardImg = this.displayCard(this.hand[i]);
 				computerTop.appendChild(cardImg);
 			}
 		}
